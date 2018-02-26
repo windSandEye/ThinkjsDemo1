@@ -1,7 +1,5 @@
 
-该工程是基于thinkjs3的一个简易demo，其目地是熟悉thinkjs3的运行模式和基本的使用方法。可参考：
-
-[http://blog.csdn.net/mafan121/article/details/79314948]: http://blog.csdn.net/mafan121/article/details/79314948
+该工程是基于thinkjs3的一个简易demo，其目地是熟悉thinkjs3的运行模式和基本的使用方法。可参考：http://blog.csdn.net/mafan121/article/details/79314948
 
 
 
@@ -25,5 +23,4 @@ npm start
 
 
 ## 效果图
-
-![QQ图片20180226103408](C:\Users\ys\Desktop\图片\QQ图片20180226103408.png)
+![效果图](https://github.com/windSandEye/ThinkjsDemo1/blob/master/www/static/img/%E6%95%88%E6%9E%9C%E5%9B%BE.png)
