@@ -1,0 +1,33 @@
+{
+    "version": 3,
+    "sources": [
+        "..\\..\\src\\config\\config.development.js"
+    ],
+    "names": [
+        "mysql",
+        "require",
+        "exports",
+        "model",
+        "type",
+        "common",
+        "logConnect",
+        "logSql",
+        "logger",
+        "msg",
+        "think",
+        "info",
+        "handle",
+        "user",
+        "password",
+        "database",
+        "host",
+        "port",
+        "connectionLimit",
+        "prefix"
+    ],
+    "mappings": "AAAA,MAAMA,QAAQC,QAAQ,mBAAR,CAAd;AACAC,QAAQC,KAAR,GAAgB;AACZC,UAAM,OADM,EACG;AACfC,YAAQ,EAAE;AACNC,oBAAY,IADR,EACc;AAClBC,gBAAQ,IAFJ,EAEU;AACdC,gBAAQC,OAAOC,MAAMF,MAAN,CAAaG,IAAb,CAAkBF,GAAlB,CAHX,CAGkC;AAHlC,KAFI;AAOZT,WAAO,EAAE;AACLY,gBAAQZ,KADL;AAEHa,cAAM,MAFH,EAEyB;AAC5BC,kBAAU,SAHP,EAGyB;AAC5BC,kBAAU,YAJP,EAIyB;AAC5BC,cAAM,WALH,EAKyB;AAC5BC,cAAM,IANH,EAMyB;AAC5BC,yBAAiB,CAPd,EAOyB;AAC5BC,gBAAQ,EARL,CAQyB;AARzB;AAPK,CAAhB",
+    "file": "..\\..\\src\\config\\config.development.js",
+    "sourcesContent": [
+        "const mysql = require('think-model-mysql');\r\nexports.model = {\r\n    type: 'mysql', // 默认使用的类型，调用时可以指定参数切换\r\n    common: { // 通用配置\r\n        logConnect: true, // 是否打印数据库连接信息\r\n        logSql: true, // 是否打印 SQL 语句\r\n        logger: msg => think.logger.info(msg) // 打印信息的 logger\r\n    },\r\n    mysql: { // mysql 配置\r\n        handle: mysql,\r\n        user: 'root',               // 用户名\r\n        password: 'root123',        // 密码\r\n        database: 'think_demo',     // 数据库\r\n        host: '127.0.0.1',          // host\r\n        port: 3306,                 // 端口\r\n        connectionLimit: 5,         // 连接池的连接个数，默认为 1\r\n        prefix: '',                 // 数据表前缀，如果一个数据库里有多个项目，那项目之间的数据表可以通过前缀来区分\r\n    }\r\n}\r\n"
+    ]
+}

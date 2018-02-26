@@ -1,0 +1,22 @@
+{
+    "version": 3,
+    "sources": [
+        "..\\..\\..\\src\\dto\\demo\\demoDto.js"
+    ],
+    "names": [
+        "CreateDemoDto",
+        "constructor",
+        "demoEntity",
+        "obj",
+        "id",
+        "title",
+        "content",
+        "hasOwnProperty",
+        "convertToType"
+    ],
+    "mappings": ";;AAAA;;;;;;AAEe,MAAMA,aAAN,CAAoB;AAC/BC,gBAAYC,UAAZ,EAAwB;AACpB,YAAIC,MAAK;AACLC,gBAAG,IADE;AAELC,mBAAM,IAFD;AAGLC,qBAAQ;AAHH,SAAT;AAKA,YAAGJ,WAAWK,cAAX,CAA0B,IAA1B,CAAH,EAAmC;AAC/BJ,gBAAIC,EAAJ,GAAS,oBAAUI,aAAV,CAAwBN,WAAWE,EAAnC,EAAsC,SAAtC,CAAT;AACH;AACD,YAAGF,WAAWK,cAAX,CAA0B,OAA1B,CAAH,EAAsC;AAClCJ,gBAAIE,KAAJ,GAAY,oBAAUG,aAAV,CAAwBN,WAAWG,KAAnC,EAAyC,QAAzC,CAAZ;AACH;AACD,YAAGH,WAAWK,cAAX,CAA0B,SAA1B,CAAH,EAAwC;AACpCJ,gBAAIG,OAAJ,GAAc,oBAAUE,aAAV,CAAwBN,WAAWI,OAAnC,EAA2C,QAA3C,CAAd;AACH;AACD,eAAOH,GAAP;AACH;AAjB8B;kBAAdH,a",
+    "file": "..\\..\\..\\src\\dto\\demo\\demoDto.js",
+    "sourcesContent": [
+        "import commonDto from '../common/commonDto';\r\n\r\nexport default class CreateDemoDto {\r\n    constructor(demoEntity) {\r\n        let obj ={\r\n            id:null,\r\n            title:null,\r\n            content:null\r\n        };\r\n        if(demoEntity.hasOwnProperty(\"id\")){\r\n            obj.id = commonDto.convertToType(demoEntity.id,\"Integer\");\r\n        }\r\n        if(demoEntity.hasOwnProperty(\"title\")){\r\n            obj.title = commonDto.convertToType(demoEntity.title,\"String\");\r\n        }\r\n        if(demoEntity.hasOwnProperty(\"content\")){\r\n            obj.content = commonDto.convertToType(demoEntity.content,\"String\");\r\n        }\r\n        return obj;\r\n    }\r\n}"
+    ]
+}

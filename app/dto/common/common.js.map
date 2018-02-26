@@ -1,0 +1,39 @@
+{
+    "version": 3,
+    "sources": [
+        "..\\..\\..\\src\\dto\\common\\common.js"
+    ],
+    "names": [
+        "commonDto",
+        "convertToType",
+        "data",
+        "type",
+        "Boolean",
+        "parseInt",
+        "parseFloat",
+        "String",
+        "parseDate",
+        "Object",
+        "constructFromObject",
+        "Array",
+        "isArray",
+        "itemType",
+        "map",
+        "item",
+        "keyType",
+        "valueType",
+        "k",
+        "hasOwnProperty",
+        "result",
+        "key",
+        "value",
+        "obj",
+        "i",
+        "length"
+    ],
+    "mappings": ";;AACA,MAAMA,YAAY,EAAlB;;AAEA;AACAA,UAAUC,aAAV,GAA0B,UAAUC,IAAV,EAAgBC,IAAhB,EAAsB;AAC5C,UAAQA,IAAR;AACE,SAAK,SAAL;AACE,aAAOC,QAAQF,IAAR,CAAP;AACF,SAAK,SAAL;AACE,UAAIA,QAAQ,IAAZ,EAAkB;AAChB,eAAOA,IAAP;AACD;AACD,aAAOG,SAASH,IAAT,EAAe,EAAf,CAAP;AACF,SAAK,QAAL;AACE,UAAIA,QAAQ,IAAZ,EAAkB;AAChB,eAAOA,IAAP;AACD;AACD,aAAOI,WAAWJ,IAAX,CAAP;AACF,SAAK,QAAL;AACE,aAAOA,OAAOK,OAAOL,IAAP,CAAP,GAAsBA,IAA7B;AACF,SAAK,MAAL;AACE,UAAIA,QAAQ,IAAZ,EAAkB;AAChB,eAAOA,IAAP;AACD;AACD,aAAO,KAAKM,SAAL,CAAeD,OAAOL,IAAP,CAAf,CAAP;AACF;AACE,UAAIC,SAASM,MAAb,EAAqB;AACnB,eAAOP,IAAP;AACD,OAFD,MAEO,IAAI,OAAOC,IAAP,KAAgB,UAApB,EAAgC;AACrC,eAAOA,KAAKO,mBAAL,CAAyBR,IAAzB,CAAP;AACD,OAFM,MAEA,IAAIS,MAAMC,OAAN,CAAcT,IAAd,CAAJ,EAAyB;AAC9B,YAAIU,WAAWV,KAAK,CAAL,CAAf;AACA,YAAI,CAACD,IAAL,EAAW;AACTA,iBAAO,EAAP;AACD;AACD,eAAOA,KAAKY,GAAL,CAAS,UAAUC,IAAV,EAAgB;AAC9B,iBAAOf,UAAUC,aAAV,CAAwBc,IAAxB,EAA8BF,QAA9B,CAAP;AACD,SAFM,CAAP;AAGD,OARM,MAQA,IAAI,OAAOV,IAAP,KAAgB,QAApB,EAA8B;AACnC,YAAIa,OAAJ,EAAaC,SAAb;AACA,aAAK,IAAIC,CAAT,IAAcf,IAAd,EAAoB;AAClB,cAAIA,KAAKgB,cAAL,CAAoBD,CAApB,CAAJ,EAA4B;AAC1BF,sBAAUE,CAAV;AACAD,wBAAYd,KAAKe,CAAL,CAAZ;AACA;AACD;AACF;AACD,YAAIE,SAAS,EAAb;AACA,aAAK,IAAIF,CAAT,IAAchB,IAAd,EAAoB;AAClB,cAAIA,KAAKiB,cAAL,CAAoBD,CAApB,CAAJ,EAA4B;AAC1B,gBAAIG,MAAMrB,UAAUC,aAAV,CAAwBiB,CAAxB,EAA2BF,OAA3B,CAAV;AACA,gBAAIM,QAAQtB,UAAUC,aAAV,CAAwBC,KAAKgB,CAAL,CAAxB,EAAiCD,SAAjC,CAAZ;AACAG,mBAAOC,GAAP,IAAcC,KAAd;AACD;AACF;AACD,eAAOF,MAAP;AACD,OAlBM,MAkBA;AACL,eAAOlB,IAAP;AACD;AArDL;AAuDD,CAxDH;;AA2DEF,UAAUU,mBAAV,GAAgC,UAAUR,IAAV,EAAgBqB,GAAhB,EAAqBV,QAArB,EAA+B;AAC7D,MAAIF,MAAMC,OAAN,CAAcV,IAAd,CAAJ,EAAyB;AACvB,SAAK,IAAIsB,IAAI,CAAb,EAAgBA,IAAItB,KAAKuB,MAAzB,EAAiCD,GAAjC,EAAsC;AACpC,UAAItB,KAAKiB,cAAL,CAAoBK,CAApB,CAAJ,EACED,IAAIC,CAAJ,IAASxB,UAAUC,aAAV,CAAwBC,KAAKsB,CAAL,CAAxB,EAAiCX,QAAjC,CAAT;AACH;AACF,GALD,MAKO;AACL,SAAK,IAAIK,CAAT,IAAchB,IAAd,EAAoB;AAClB,UAAIA,KAAKiB,cAAL,CAAoBD,CAApB,CAAJ,EACEK,IAAIL,CAAJ,IAASlB,UAAUC,aAAV,CAAwBC,KAAKgB,CAAL,CAAxB,EAAiCL,QAAjC,CAAT;AACH;AACF;AACF,CAZD;;kBAceb,S",
+    "file": "..\\..\\..\\src\\dto\\common\\common.js",
+    "sourcesContent": [
+        "\r\nconst commonDto = {};\r\n\r\n//根据配置的类型转换数据类型\r\ncommonDto.convertToType = function (data, type) {\r\n    switch (type) {\r\n      case 'Boolean':\r\n        return Boolean(data);\r\n      case 'Integer':\r\n        if (data == null) {\r\n          return data;\r\n        }\r\n        return parseInt(data, 10);\r\n      case 'Number':\r\n        if (data == null) {\r\n          return data;\r\n        }\r\n        return parseFloat(data);\r\n      case 'String':\r\n        return data ? String(data) : data;\r\n      case 'Date':\r\n        if (data == null) {\r\n          return data;\r\n        }\r\n        return this.parseDate(String(data));\r\n      default:\r\n        if (type === Object) {\r\n          return data;\r\n        } else if (typeof type === 'function') {\r\n          return type.constructFromObject(data);\r\n        } else if (Array.isArray(type)) {\r\n          var itemType = type[0];\r\n          if (!data) {\r\n            data = [];\r\n          }\r\n          return data.map(function (item) {\r\n            return commonDto.convertToType(item, itemType);\r\n          });\r\n        } else if (typeof type === 'object') {\r\n          var keyType, valueType;\r\n          for (var k in type) {\r\n            if (type.hasOwnProperty(k)) {\r\n              keyType = k;\r\n              valueType = type[k];\r\n              break;\r\n            }\r\n          }\r\n          var result = {};\r\n          for (var k in data) {\r\n            if (data.hasOwnProperty(k)) {\r\n              var key = commonDto.convertToType(k, keyType);\r\n              var value = commonDto.convertToType(data[k], valueType);\r\n              result[key] = value;\r\n            }\r\n          }\r\n          return result;\r\n        } else {\r\n          return data;\r\n        }\r\n    }\r\n  };\r\n\r\n  \r\n  commonDto.constructFromObject = function (data, obj, itemType) {\r\n    if (Array.isArray(data)) {\r\n      for (var i = 0; i < data.length; i++) {\r\n        if (data.hasOwnProperty(i))\r\n          obj[i] = commonDto.convertToType(data[i], itemType);\r\n      }\r\n    } else {\r\n      for (var k in data) {\r\n        if (data.hasOwnProperty(k))\r\n          obj[k] = commonDto.convertToType(data[k], itemType);\r\n      }\r\n    }\r\n  };\r\n\r\n  export default commonDto;\r\n"
+    ]
+}

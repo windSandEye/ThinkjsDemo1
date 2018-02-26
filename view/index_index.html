@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <link rel="stylesheet" href="/static/extra/bootstrap/dist/css/bootstrap.min.css">
+  <script src="/static/extra/jquery/jquery.min.js"></script>
+  <script src="/static/extra/bootstrap/dist/js/bootstrap.min.js"></script>
+  <title>ThinkJs Demo</title>
+  <style>
+    .demo-left {
+      width: 50%;
+      float: left;
+    }
+
+    .demo-item {
+      position: relative;
+    }
+
+    .demo-content {
+      border: 1px solid #e0d2d2;
+      padding: 10px;
+      margin: 15px 100px 15px 15px;
+      border-radius: 5px;
+    }
+
+    .demo-delete {
+      position: absolute;
+      right: 45px;
+      top: 50%;
+      margin-top: -10px;
+    }
+
+    .demo-right {
+      width: 50%;
+      float: left;
+      padding: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="thinkDemo" class="demo-left">
+
+  </div>
+  <div class="demo-right">
+    <from>
+      <div class="form-group input-group">
+        <span class="input-group-addon" id="title-text">标题</span>
+        <input type="text" class="form-control" id="title" aria-describedby="title-text">
+      </div>
+      <div class="form-group input-group">
+        <span class="input-group-addon" id="content-text">内容</span>
+        <input type="text" class="form-control" id="content" aria-describedby="content-text">
+      </div>
+      <button type="button" class="btn btn-primary" onclick="addDemo()">提交</button>
+    </from>
+  </div>
+  <script>
+    //列表渲染
+    $(function () {
+      $.ajax({
+        type: 'get',
+        url: 'http://localhost:8088/demo/demo',
+        success: function (data) {
+          if (data.data) {
+            let content = data.data.map((item, index) => {
+              return (
+                `<div class="demo-item">
+                  <div key={index} class="demo-content">
+                    <h3>${item.title}</h3>
+                    <p>${item.content}</p>
+                  </div>
+                  <div class="demo-delete"><a onclick="deleteDemo(${item.id})">删除</a></div>
+                </div>`
+              )
+            })
+            $("#thinkDemo").html(content.join(""));
+          }
+        }
+      });
+    })
+
+    //添加
+    function addDemo() {
+      let title = $("#title").val();
+      let content = $("#content").val();
+      $.ajax({
+        type: 'post',
+        url: 'http://localhost:8088/demo/demo/addDemo',
+        data: {
+          title: title,
+          content: content
+        },
+        success: function (data) {
+          if (data) {
+            window.location.reload();
+          }
+        }
+      });
+    }
+
+    //删除
+    function deleteDemo(id){
+      $.ajax({
+        type: 'post',
+        url: 'http://localhost:8088/demo/demo/deleteDemo',
+        data: {id: id},
+        success: function (data) {
+          if (data.code == 0) {
+            window.location.reload();
+          }else{
+            alert(data.message);
+          }
+        }
+      });
+    }
+
+  </script>
+</body>
+
+</html>

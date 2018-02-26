@@ -1,0 +1,16 @@
+{
+    "version": 3,
+    "sources": [
+        "..\\..\\src\\config\\config.js"
+    ],
+    "names": [
+        "module",
+        "exports",
+        "port"
+    ],
+    "mappings": "AAAA;AACAA,OAAOC,OAAP,GAAiB;AACbC,UAAM,IADO,CACD;AADC,CAAjB",
+    "file": "..\\..\\src\\config\\config.js",
+    "sourcesContent": [
+        "// default config\nmodule.exports = {\n    port: 8088  //默认访问端口设置\n};\n"
+    ]
+}

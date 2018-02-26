@@ -1,0 +1,33 @@
+{
+    "version": 3,
+    "sources": [
+        "..\\..\\..\\src\\controller\\demo\\demo.js"
+    ],
+    "names": [
+        "indexAction",
+        "data",
+        "model",
+        "select",
+        "success",
+        "addDemoAction",
+        "param",
+        "ctx",
+        "post",
+        "demoEntity",
+        "insertId",
+        "add",
+        "deleteDemoAction",
+        "deleteRow",
+        "where",
+        "id",
+        "delete",
+        "error",
+        "code",
+        "message"
+    ],
+    "mappings": ";;AAAA;;;;AACA;;;;;;;;kBAEe,6BAAmB;;AAE9B;AACMA,eAAN,GAAoB;AAAA;;AAAA;AAChB,gBAAIC,OAAO,MAAM,MAAKC,KAAL,CAAW,MAAX,EAAmBC,MAAnB,EAAjB;AACA,mBAAO,MAAKC,OAAL,CAAaH,IAAb,CAAP;AACA;AAHgB;AAInB;;AAED;AACMI,iBAAN,GAAsB;AAAA;;AAAA;AAClB,kBAAMC,QAAQ,OAAKC,GAAL,CAASC,IAAT,EAAd;AACA,gBAAIC,aAAa,sBAAYH,KAAZ,CAAjB;AACA,gBAAII,WAAW,MAAM,OAAKR,KAAL,CAAW,MAAX,EAAmBS,GAAnB,CAAuBF,UAAvB,CAArB;AACA,mBAAO,OAAKL,OAAL,CAAaM,QAAb,CAAP;AAJkB;AAKrB;;AAED;AACME,oBAAN,GAAyB;AAAA;;AAAA;AACrB,kBAAMN,QAAQ,OAAKC,GAAL,CAASC,IAAT,EAAd;AACA,gBAAIK,YAAY,MAAM,OAAKX,KAAL,CAAW,MAAX,EAAmBY,KAAnB,CAAyB,EAACC,IAAI,CAAC,GAAD,EAAMT,MAAMS,EAAZ,CAAL,EAAzB,EAAgDC,MAAhD,EAAtB;AACA,gBAAIC,QAAQ,EAACC,MAAK,CAAN,EAAQC,SAAQ,MAAhB,EAAZ;AACA,gBAAGN,YAAU,CAAb,EAAe;AACXI,sBAAMC,IAAN,GAAa,CAAb;AACAD,sBAAME,OAAN,GAAgB,MAAhB;AACH;AACD,mBAAO,OAAKf,OAAL,CAAaa,KAAb,CAAP;AARqB;AASxB;;AA3B6B,C",
+    "file": "..\\..\\..\\src\\controller\\demo\\demo.js",
+    "sourcesContent": [
+        "import Base from '../base.js';\r\nimport DemoDto from '../../dto/demo/demoDto';\r\n\r\nexport default class extends Base {\r\n\r\n    //列表\r\n    async indexAction() {\r\n        let data = await this.model('demo').select();\r\n        return this.success(data);\r\n        // return this.display();\r\n    }\r\n\r\n    //添加\r\n    async addDemoAction() {\r\n        const param = this.ctx.post();\r\n        let demoEntity = new DemoDto(param);\r\n        let insertId = await this.model('demo').add(demoEntity);\r\n        return this.success(insertId);\r\n    }\r\n\r\n    //删除\r\n    async deleteDemoAction() {\r\n        const param = this.ctx.post();\r\n        let deleteRow = await this.model('demo').where({id: ['=', param.id]}).delete();\r\n        let error = {code:1,message:\"删除失败\"}\r\n        if(deleteRow>0){\r\n            error.code = 0;\r\n            error.message = \"删除成功\";\r\n        }\r\n        return this.success(error);\r\n    }\r\n\r\n\r\n}"
+    ]
+}
